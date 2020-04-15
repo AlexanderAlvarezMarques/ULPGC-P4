@@ -1,2 +1,2 @@
 # ULPGC-P4
-Practices of the subject programming 4
+This repository is used to developed practices of programming 4 subject.
