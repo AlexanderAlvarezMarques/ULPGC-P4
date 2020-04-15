@@ -1,0 +1,139 @@
+/* Header */
+	header {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		background-color: #999;
+		padding: 0 15px;
+	}
+
+	header a {
+		color: #000;
+		padding: 5px;
+		border-radius: 15px;
+		outline: 0;
+		transition: all 0.5s linear;
+	}
+
+	header a:hover {
+		color: #FFF;
+		background-color: #000;
+		padding: 5px 100px;
+	}
+
+	header a:focus {
+		color: #FFF;
+		background-color: #000;
+		padding: 5px 100px;
+	}
+
+	header .logo img {
+		height: 50px;
+		margin: 5px 0;
+	}
+
+	header .menu {
+		align-self: center;
+	}
+
+	header .menu .burger {
+		color: #FFFFFF;
+		font-size: 20px;
+	}
+
+	header .menu .burger:hover {
+		cursor: pointer;
+	}
+
+	header .menu .navbar {
+		display: none;
+	    position: absolute;
+	    left: 0;
+	    top: 64px;
+	    list-style: none;
+	    width: 100%;
+	    padding: 0 !important;
+	    margin: 0;
+	}
+
+	header .menu .nav-item {
+	    background-color: #999;
+	    text-align: center;
+	    padding: 5px 0;
+	    border-bottom: 1px solid white;
+	}
+
+	header .menu .navbar .active {
+		background: #000;
+		color: #FFF;
+		padding: 5px 100px;
+	}
+
+	header .menu .nav-item-1 {
+		border-top: 1px solid white;
+	}
+
+	header .login {
+		display: none;
+	}
+
+/* Central */
+	.central {
+		margin-top: 15vh;
+	}
+
+	.central .background {
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+
+	.central .title {
+		text-align: center;
+		background-color: white;
+		border-bottom: 2px dashed rgba(125, 125, 125, 0.5);
+	}
+
+	.central .title h1 {
+		margin: 0;
+		padding: 10px 0;
+	}
+
+	.central .content {
+		background-color: white;
+		text-align: justify;
+	}
+
+	.central .content .margin {
+		padding: 25px 25px !important;
+	}
+
+/* Footer */
+	footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		/* Set the fixed height of the footer here */
+		height: 85px;
+		background-color: #3C4142;
+		text-align: center;
+		color: #FFF;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	footer * {
+		width: 100%;
+		align-self: center;
+	}
+
+	footer .name {
+		font-size: xxx-large;
+	}
+
+	footer .copyright {
+		color: #000;
+	}
+
+	footer .copyright b {
+		color: #FFF;
+	}
