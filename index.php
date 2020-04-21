@@ -33,29 +33,13 @@
 </head>
 <body>
 	
-	<!-- Header -->
-	<header>
-		<div class="logo">
-			<img src="imagenes/logo.png" alt="GCActiva Logo">
-		</div>
-		<div class="menu">
-			<div class="burger" data-toggler="#navbar_sup">
-				<i class="fas fa-bars" onclick="burguer_navbar_sup()"></i>
-			</div>
-			<ul class="navbar" id="navbar_sup">
-				<li class="nav-item nav-item-1">
-					<a class="nav-link active" href="index.html">Home</a></li>
-				<li class="nav-item">
-					<a class="nav-link" href="activities.html">Actividades</a></li>
-				<li class="nav-item">
-					<a class="nav-link" href="contact.html">Contacto</a></li>
-			</ul>
-		</div>
-		<div class="login">
-			<a href="login.html">Login</a>
-			<a href="register.html">Resgistrarse</a>
-		</div>
-	</header>
+	<?php
+
+	include ("presentation.class.php");
+
+	View::header();
+
+	?>
 
 	<!-- Seccion central -->
 	<section class="central">
