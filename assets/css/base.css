@@ -27,53 +27,6 @@ a:hover {
 	color: #FF0000;
 }
 
-/* Formulario */
-
-.form{
-	width: 50%;
-	margin: 0 auto;
-}
-
-.formlogin{
-	width: 100%;
-}
-
-.labelogin{
-	font-family: 'Roboto', sans-serif;
-	margin-top: 5px;
-}
-
-.inputlogin{
-	width: 100%;
-}
-
-/* Contact */
-
-.formcontact{
-	width: 100%;
-}
-
-.labelcontact{
-	font-family: 'Roboto', sans-serif;
-	margin-top: 5px;
-}
-
-.inputcontact{
-	width: 100%;
-
-}
-
-.textareacontact{
-	text-align: center;
-	width: 100%;
-	height: 150px;
-}
-
-.button{
-	width:100%;
-	font-family: 'Roboto', sans-serif;
-}
-
 /* Responsive */
 .container {
 	width: 100%;
