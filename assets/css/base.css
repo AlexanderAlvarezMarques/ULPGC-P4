@@ -29,43 +29,48 @@ a:hover {
 
 /* Formulario */
 
+.form{
+	width: 50%;
+	margin: 0 auto;
+}
+
 .formlogin{
-	text-align: center;
+	width: 100%;
 }
 
 .labelogin{
 	font-family: 'Roboto', sans-serif;
+	margin-top: 5px;
 }
 
 .inputlogin{
-	font-family: 'Roboto', sans-serif;
-}
-
-.buttonlogin{
-	font-family: 'Roboto', sans-serif;
+	width: 100%;
 }
 
 /* Contact */
 
 .formcontact{
-	text-align: center;
+	width: 100%;
 }
 
 .labelcontact{
 	font-family: 'Roboto', sans-serif;
+	margin-top: 5px;
 }
 
 .inputcontact{
-	font-family: 'Roboto', sans-serif;
+	width: 100%;
+
 }
 
 .textareacontact{
 	text-align: center;
-	width: 400px;
+	width: 100%;
 	height: 150px;
 }
 
-.buttoncontact{
+.button{
+	width:100%;
 	font-family: 'Roboto', sans-serif;
 }
 
