@@ -5,6 +5,8 @@
 		flex-wrap: wrap;
 		background-color: #999;
 		padding: 0 15px;
+		position: sticky;
+		top: 0;
 	}
 
 	header a {
@@ -47,20 +49,20 @@
 
 	header .menu .navbar {
 		display: none;
-	    position: absolute;
-	    left: 0;
-	    top: 64px;
-	    list-style: none;
-	    width: 100%;
-	    padding: 0 !important;
-	    margin: 0;
+		position: absolute;
+		left: 0;
+		top: 64px;
+		list-style: none;
+		width: 100%;
+		padding: 0 !important;
+		margin: 0;
 	}
 
 	header .menu .nav-item {
-	    background-color: #999;
-	    text-align: center;
-	    padding: 5px 0;
-	    border-bottom: 1px solid white;
+		background-color: #999;
+		text-align: center;
+		padding: 5px 0;
+		border-bottom: 1px solid white;
 	}
 
 	header .menu .navbar .active {
@@ -78,10 +80,6 @@
 	}
 
 /* Central */
-	.central {
-		margin-top: 15vh;
-	}
-
 	.central .background {
 		background-color: rgba(255, 255, 255, 0.5);
 	}
@@ -95,6 +93,8 @@
 	.central .title h1 {
 		margin: 0;
 		padding: 10px 0;
+		font-size: 2.5em;
+		margin-top: 15vh;
 	}
 
 	.central .content {
@@ -104,6 +104,66 @@
 
 	.central .content .margin {
 		padding: 25px 25px !important;
+	}
+
+/* Tour tables */
+	
+	.table_container {
+		padding-bottom: 40px;
+	}
+
+	.table_container tr td b {
+		font-size: 20px;
+	}
+
+	#activities {
+		margin: auto;
+		border-collapse: collapse;
+		width: 90%;
+	}
+	  
+	#activities td, #activities th {
+		padding: 15px;
+		text-align: center;
+		margin: 5px 0;
+	}
+
+	#activities tr:nth-child(even) {
+		background-color: rgba(255, 187, 0, 0.705);
+		border-top: 2px solid white;
+		padding: 12px;
+	}
+
+	#activities tr:nth-child(odd) {
+		background-color: rgba(255, 187, 0, 0.301);
+		border-top: 2px solid white;
+		padding: 12px;
+	}
+
+	#activities th {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		background-color: rgb(218, 69, 0);
+		color: white;
+		text-align: center;
+	}
+
+	#activities a {
+		color: black;
+		text-decoration: none;
+	}
+
+	.linktabla:hover {
+		background-color: rgb(218, 69, 0);
+	}
+
+	#activities a:hover {
+		text-decoration: underline;
+	}
+
+	.lugartabla {
+		border-right: 2px solid white;
+		border-left: 2px solid white;
 	}
 
 /* Footer */
