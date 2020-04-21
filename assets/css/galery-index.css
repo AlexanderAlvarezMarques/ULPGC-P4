@@ -48,3 +48,15 @@
 .image-galery:hover .hover-galery{
 	transform: scale(1);
 }
+
+@media screen and (max-width: 767px) {
+  .image-galery {
+    width: 44%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .image-galery {
+    width: 90%;
+  }
+}
