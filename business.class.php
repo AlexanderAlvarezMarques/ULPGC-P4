@@ -30,10 +30,11 @@ class User {
         unset($_SESSION['user']);
     }
 
-    public static function registerUser($usuario,$pass, $name, $userype, $email, 
-                                        $poblacion, $direccion, $telefono){ //Devuelve verdadero o falso según
-        $res=DB::execute_sql('INSERT INTO usuarios (cuenta, pass, nombre, email, poblacion, direccion, telefono) 
-                            VALUES ('$usuario','$pass', '$name', '$userype', '$email', 
-                                        '$poblacion', '$direccion', '$telefono')');
-    }
+	public static function registerUser ($usuario, $pass, $name, $userype, $email, $poblacion, $direccion, $telefono){
+		//Devuelve verdadero o falso según
+		$SQL = "INSERT INTO usuarios (cuenta, pass, nombre, tipo, email, poblacion, direccion, telefono) 
+			VALUES ('$usuario','$pass', '$name', '$userype', '$email', '$poblacion', '$direccion', '$telefono')";
+		$res=DB::execute_sql($SQL);
+		);
+	}
 }
