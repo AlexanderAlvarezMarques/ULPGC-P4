@@ -29,4 +29,11 @@ class User {
         self::session_start();
         unset($_SESSION['user']);
     }
+
+    public static function registerUser($usuario,$pass, $name, $userype, $email, 
+                                        $poblacion, $direccion, $telefono){ //Devuelve verdadero o falso según
+        $res=DB::execute_sql('INSERT INTO id, usuarios (cuenta, pass, nombre, tipo, email, poblacion, direccion, telefono) 
+                            VALUES ('$usuario','$pass', '$name', '$userype', '$email', 
+                                        '$poblacion', '$direccion', '$telefono')');
+    }
 }
