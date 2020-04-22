@@ -20,7 +20,7 @@ if (isset($_POST["access"])){
     	$login = false;
     }
     
-    if(User::registerUser($usuario,$pass, $name, $usertype, $email, 
+    if(User::registerUser($usuario,$pass, $name, $email, 
     					  $poblacion, $direccion, $telefono)){
         header('Location:index.php');
     } else {
@@ -40,12 +40,6 @@ if (isset($_POST["access"])){
 			<div class="margin">
 				<div class="form">
 				    <form class="formlogin" method="POST" action="index.php">
-				        <input type="radio" name="usertype"
-						<?php if (isset($usertype) && $usertype=="2") echo "checked";?>
-						value="Empresa">Empresa
-						<input type="radio" name="usertype"
-						<?php if (isset($usertype) && $usertype=="1") echo "checked";?>
-						value="Cliente">Cliente
 				        <input type="text" name="access" value="true" hidden><br><br>
 				        <label class="labelogin" for="user">Usuario:</label><br>
 				        <input class="inputlogin" type="text" name="user"><br><br>
