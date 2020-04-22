@@ -1,42 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-	<!-- Caracteres especiales -->
-	<meta charset="UTF-8">
-
-	<!-- ViewPort -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<!-- Titulo pestana -->
-	<title>GCActiva</title>
-	
-	<!-- Favicon -->
-    <link rel="shortcut icon" href="imagenes/favicon.png" type="image/x-icon">
-
-	<!-- Enlace FontAwesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-
-	<!-- Enlaces CSS -->
-	<link rel="stylesheet" href="assets/css/base.css">
-	<link rel="stylesheet" href="assets/css/xs-sm.css">
-	<link rel="stylesheet" href="assets/css/md-lg.css">
-	<link rel="stylesheet" href="assets/css/galery-index.css">
-
-	<!-- Enlaces Js -->
-	<script src="assets/js/javascript.js"></script>
-
-</head>
-<body>
-	
 	<?php
 
 	include ("presentation.class.php");
-
+	View::start();
 	View::header();
 
 	?>
@@ -141,11 +106,6 @@
 		</div>
 	</section>
 
-	<!-- Footer -->
-	<footer>
-		<div class="name">GCActiva</div>
-		<div class="copyright">@Copyright <b>Alexander Alvarez</b> - <b>Isidro Bermúdez</b> - <b>Fabián Beirutti</b></div>
-	</footer>
-
-</body>
-</html>
+<?php
+	View::footer();
+?>
