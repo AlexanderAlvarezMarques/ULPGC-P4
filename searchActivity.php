@@ -1,24 +1,13 @@
 <?php
 
-include ("presentation.class.php");
+include_once ("data_access.class.php");
+include_once ("presentation.class.php");
 
-View::start();
-View::header();
+$value = $_POST['search'];
 
-$SQL = "SELECT * FROM actividades;";
+$SQL = "SELECT * FROM actividades WHERE nombre LIKE '%$value%' OR tipo  LIKE '%$value%' OR inicio LIKE '%$value%'";
 $activities = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED);
 
-echo "<!-- Seccion central -->";
-echo "<section class='central'>";
-echo "<div class='container title'>";
-echo "<h1>Actividades populares en GCActiva</h1>";
-echo "</div>";
-echo "<div class='background'>";
-echo "<div class='container content'>";
-echo "<div class='table_container'>";
-echo "<label>Buscar:</label>";
-echo "<input id='search' type='text' onkeyup='startTimer()' onkeydown='restartTimer()' placeholder='Opera'>";
-echo "<table id='activities'>";
 echo "<tr>";
 echo "<th>Nombre</th>";
 echo "<th class='lugartabla'>Precio</th>";
@@ -45,11 +34,3 @@ foreach ($activities as $activity) {
     echo "</tr>";
 
 }
-
-echo "</table>";
-echo "</div>";
-echo "</div>";
-echo "</div>";
-echo "</section>";
-
-View::footer();

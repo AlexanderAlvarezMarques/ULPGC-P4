@@ -9,3 +9,26 @@ function burguer_navbar_sup () {
 	}
 
 }
+
+var typingTimer;                //timer identifier
+var doneTypingInterval = 1000;  //time in ms, 5 second for example
+
+function searchTour() {
+	$("document").ready(function() {
+		var searchValue = $("#search").val();
+		$("#activities").load("searchActivity.php", {
+			search: searchValue
+		});
+	});
+}
+
+function startTimer() {
+
+	clearTimeout(typingTimer);
+  	typingTimer = setTimeout(searchTour, doneTypingInterval);
+
+}
+
+function restartTimer() {
+	clearTimeout(typingTimer);
+}

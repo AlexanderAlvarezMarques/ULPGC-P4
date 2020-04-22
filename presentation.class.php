@@ -3,45 +3,47 @@
 include_once 'business.class.php';
 
 class View {
-    public static function start(){
+
+    public static function start() {
         $html = 
         "
         <!DOCTYPE html>
         <html lang='en'>
         <head>
-
+            
             <!-- Caracteres especiales -->
             <meta charset='UTF-8'>
-
+            
             <!-- ViewPort -->
             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
+            
             <!-- Titulo pestana -->
             <title>GCActiva</title>
-
+            
             <!-- Favicon -->
             <link rel='shortcut icon' href='imagenes/favicon.png' type='image/x-icon'>
-
+            
             <!-- Enlace FontAwesome -->
             <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'>
-
+            
             <!-- Google Fonts -->
             <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap' rel='stylesheet'>
             <link href='https://fonts.googleapis.com/css2?family=Forum&display=swap' rel='stylesheet'>
-
+            
             <!-- Enlaces CSS -->
             <link rel='stylesheet' href='assets/css/base.css'>
             <link rel='stylesheet' href='assets/css/xs-sm.css'>
             <link rel='stylesheet' href='assets/css/md-lg.css'>
-
-            <!-- Enlaces Js -->
+            
+            <!-- Enlaces Javascript -->
+            <script src='assets/js/jquery.min.js'></script>
             <script src='assets/js/javascript.js'></script>
-
         </head>
         <body>
         ";
         echo $html;
     }
+
     public static function header() {
 
         $html = 
@@ -73,14 +75,14 @@ class View {
 
         echo $html;
     }
-    
+
     public static function footer() {
         $html = 
         "
         <!-- Footer -->
         <footer>
-        	<div class='name'>GCActiva</div>
-        	<div class='copyright'>@Copyright <b>Alexander Alvarez</b> - <b>Isidro Bermúdez</b> - <b>Fabián Beirutti</b></div>
+            <div class='name'>GCActiva</div>
+            <div class='copyright'>@Copyright <b>Alexander Alvarez</b> - <b>Isidro Bermúdez</b> - <b>Fabián Beirutti</b></div>
         </footer>
         
         </body>
@@ -89,7 +91,7 @@ class View {
         
         echo $html;
     }
-    
+
     public static function imgtobase64($img) {
         
         $b64 = base64_encode($img);
@@ -104,4 +106,3 @@ class View {
         return $mime . $b64;
     }
 }
-?>
