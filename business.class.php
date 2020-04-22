@@ -32,7 +32,7 @@ class User {
 
     public static function registerUser($usuario,$pass, $name, $userype, $email, 
                                         $poblacion, $direccion, $telefono){ //Devuelve verdadero o falso según
-        $res=DB::execute_sql('INSERT INTO id, usuarios (cuenta, pass, nombre, tipo, email, poblacion, direccion, telefono) 
+        $res=DB::execute_sql('INSERT INTO usuarios (cuenta, pass, nombre, email, poblacion, direccion, telefono) 
                             VALUES ('$usuario','$pass', '$name', '$userype', '$email', 
                                         '$poblacion', '$direccion', '$telefono')');
     }
