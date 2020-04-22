@@ -1,61 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<?php
 
-	<!-- Caracteres especiales -->
-	<meta charset="UTF-8">
+	include ("presentation.class.php");
+	View::start();
+	View::header();
 
-	<!-- ViewPort -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+$login = true;
 
-	<!-- Titulo pestana -->
-	<title>GCActiva</title>
+if (isset($_POST["access"])){
+    $userName = $_POST["user"];
+    $email = $_POST["email"];
+    $name = $_POST["name"];
+    $place = $_POST["place"];
+    $dir = $_POST["dir"];
+    $tlfn = $_POST["tlfn"];
+    $password1 = $_POST["password1"];
+    $password2 = $_POST["password2"];
+    
+    if($password1 != $password2){
+    	$login = false;
+    }
+    
+    if(User::registerUser($usuario,$pass, $name, $usertype, $email, 
+    					  $poblacion, $direccion, $telefono)){
+        header('Location:index.php');
+    } else {
+        $login = false;
+    }
+}
 
-	<!-- Favicon -->
-    <link rel="shortcut icon" href="imagenes/favicon.png" type="image/x-icon">
 
-	<!-- Enlace FontAwesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-
-	<!-- Enlaces CSS -->
-	<link rel="stylesheet" href="assets/css/base.css">
-	<link rel="stylesheet" href="assets/css/xs-sm.css">
-	<link rel="stylesheet" href="assets/css/md-lg.css">
-
-	<!-- Enlaces Js -->
-	<script src="assets/js/javascript.js"></script>
-
-</head>
-<body>
-	
-<!-- Header -->
-<header>
-	<div class="logo">
-		<img src="imagenes/logo.png" alt="GCActiva Logo">
-	</div>
-	<div class="menu">
-		<div class="burger" data-toggler="#navbar_sup">
-			<i class="fas fa-bars" onclick="burguer_navbar_sup()"></i>
-		</div>
-		<ul class="navbar" id="navbar_sup">
-			<li class="nav-item nav-item-1">
-				<a class="nav-link active" href="index.html">Home</a></li>
-			<li class="nav-item">
-				<a class="nav-link" href="activities.html">Actividades</a></li>
-			<li class="nav-item">
-				<a class="nav-link" href="contact.html">Contacto</a></li>
-		</ul>
-	</div>
-	<div class="login">
-		<a href="login.html">Login</a>
-		<a href="register.html">Resgistrarse</a>
-	</div>
-</header>
-
+?>
 <!-- Seccion central -->
 <section class="central">
 	<div class="container title">
@@ -65,16 +39,31 @@
 		<div class="container content">
 			<div class="margin">
 				<div class="form">
-				    <form class="formlogin" method="POST" action="index.html">
-				        <label class="labelogin" for="nombre">Usuario:</label><br>
-				        <input class="inputlogin" type="text" name="nombre"><br>
+				    <form class="formlogin" method="POST" action="index.php">
+				        <input type="radio" name="usertype"
+						<?php if (isset($usertype) && $usertype=="2") echo "checked";?>
+						value="Empresa">Empresa
+						<input type="radio" name="usertype"
+						<?php if (isset($usertype) && $usertype=="1") echo "checked";?>
+						value="Cliente">Cliente
+				        <input type="text" name="access" value="true" hidden><br><br>
+				        <label class="labelogin" for="user">Usuario:</label><br>
+				        <input class="inputlogin" type="text" name="user"><br><br>
 				        <label class="labelogin" for="email">Email:</label><br>
-				        <input class="inputlogin" type="text" name="email"><br>
+				        <input class="inputlogin" type="text" name="email"><br><br>
+				        <label class="labelogin" for="name">Nombre:</label><br>
+				        <input class="inputlogin" type="text" name="name"><br><br>
+				        <label class="labelogin" for="place">Poblacion:</label><br>
+				        <input class="inputlogin" type="text" name="place"><br><br>
+				        <label class="labelogin" for="dir">Direccion:</label><br>
+				        <input class="inputlogin" type="text" name="dir"><br><br>
+				        <label class="labelogin" for="tlfn">Telefono:</label><br>
+				        <input class="inputlogin" type="text" name="tlfn"><br><br>
 				        <label class="labelogin" for="password1">Contraseña:</label><br>
-				        <input class="inputlogin" type="password" name="contraseña1"><br>
+				        <input class="inputlogin" type="password" name="password1"><br><br>
 				        <label class="labelogin" for="password2">Confirmar Contraseña:</label><br>
-				        <input class="inputlogin" type="password" name="contraseña2"><br><br>
-				        <button class="button" type="submit">Identifícate</button><br>
+				        <input class="inputlogin" type="password" name="password2"><br><br>
+				        <button class="button" type="submit">Crear Cuenta</button><br>
 				    </form>
 				</div>
 			</div>
@@ -83,11 +72,6 @@
 	</div>
 </section>
 
-<!-- Footer -->
-<footer>
-	<div class="name">GCActiva</div>
-	<div class="copyright">@Copyright <b>Alexander Alvarez</b> - <b>Isidro Bermúdez</b> - <b>Fabián Beirutti</b></div>
-</footer>
-
-</body>
-</html>
+<?php
+	View::footer();
+?>
