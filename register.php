@@ -38,7 +38,7 @@ if (isset($_POST["access"])){
     }
     
     if($completo and $ppass){
-        if(User::registerUser($userName,$password1, $name, 3, $email, //3 es para hacerlo cliente
+        if(User::registerUser($userName, md5($password1), $name, 3, $email, //3 es para hacerlo cliente
         					  $place, $dir, $tlfn)){
             header('Location:index.php');
         } else {
@@ -99,4 +99,3 @@ if (isset($_POST["access"])){
 
 <?php
 	View::footer();
-?>
