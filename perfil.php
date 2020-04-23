@@ -2,7 +2,7 @@
 
 include_once ("business.class.php");
 
-$user = Userr::getLoggedUser();
+$user = User::getLoggedUser();
 
 if ($user != null) {
 	switch ($user['tipo']) {
