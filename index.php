@@ -57,51 +57,32 @@ View::header();
 		<div class="background">
 			<div class="container content">
 				<div class="margin">
-
 					<section class="galery">
 						<div class="galery-imgs">
-							<div class="image-galery">
-								<img src="imagenes/bandama.jpg" alt="Imagen de la Caldera de Bandama" title="Caldera Bandama">
-								<div class="hover-galery">
-									<img src="imagenes/icon.png">
-									<p>Bandama</p>
-								</div>
-							</div>
-							<div class="image-galery">
-								<img src="imagenes/juanes.jpg" alt="Imagen de Juanes" title="Juanes">
-								<div class="hover-galery">
-									<img src="imagenes/icon.png">
-									<p>Juanes</p>
-								</div>
-							</div>
-							<div class="image-galery">
-								<img src="imagenes/losmiserables.jpg" alt="Imagen de los Miserables" title="Los Miserables">
-								<div class="hover-galery">
-									<img src="imagenes/icon.png">
-									<p>Miserables</p>
-								</div>
-							</div>
-							<div class="image-galery">
-								<img src="imagenes/observatorio.jpg" alt="Imagen del observatorio" title="Observatorio">
-								<div class="hover-galery">
-									<img src="imagenes/icon.png">
-									<p>Observatorio</p>
-								</div>
-							</div>
-							<div class="image-galery">
-								<img src="imagenes/rigoletto.jpg" alt="Imagen de Rigoletto" title="Rigoletto">
-								<div class="hover-galery">
-									<img src="imagenes/icon.png">
-									<p>Rigoletto</p>
-								</div>
-							</div>
-							<div class="image-galery">
-								<img src="imagenes/tamadaba.jpg" alt="Imagen de tamadaba" title="Tamadaba">
-								<div class="hover-galery">
-									<img src="imagenes/icon.png">
-									<p>Tamadaba</p>
-								</div>
-							</div>
+						    
+						    <?php
+						    
+						    $SQL = "SELECT * FROM actividades;";
+						    $activities = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED);
+						    
+						    foreach ($activities as $activity) {
+						        $id = $activity['id'];
+						        $nombre = $activity['nombre'];
+						        $imagen = View::imgtobase64($activity['imagen']);
+						        
+						        echo $html = "
+						        <div class='image-galery'>
+								    <img src='$imagen' alt='Imagen de $nombre' title='$nombre'>
+								    <div class='hover-galery'>
+									    <img src='imagenes/icon.png'>
+									    <p>'$nombre'</p>
+								    </div>
+							    </div>
+						        ";
+						    }
+						    
+						    ?>
+							
 						</div>           
 					</section>
 				</div>
