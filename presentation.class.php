@@ -31,9 +31,9 @@ class View {
             <link href='https://fonts.googleapis.com/css2?family=Forum&display=swap' rel='stylesheet'>
             
             <!-- Enlaces CSS -->
-            <link rel='stylesheet' href='assets/css/base.css'>
-            <link rel='stylesheet' href='assets/css/xs-sm.css'>
-            <link rel='stylesheet' href='assets/css/md-lg.css'>
+            <link rel='stylesheet' href='/assets/css/base.css'>
+            <link rel='stylesheet' href='/assets/css/xs-sm.css'>
+            <link rel='stylesheet' href='/assets/css/md-lg.css'>
             
             <!-- Enlaces Javascript -->
             <script src='assets/js/jquery.min.js'></script>
@@ -51,7 +51,7 @@ class View {
         <!-- header -->
         <header>
             <div class='logo'>
-                <img src='imagenes/logo.png' alt ='GCActiva Logo'>
+                <img src='/imagenes/logo.png' alt ='GCActiva Logo'>
             </div>
             <div class='menu'>
                 <div class='burger' data-toggler='#navbar_sup'>
@@ -59,17 +59,17 @@ class View {
                 </div>
                 <ul class='navbar' id='navbar_sup'>
                     <li class='nav-item nav-item-1'>
-                        <a class='nav-link active' href='index.php'>Home</a></li>
+                        <a class='nav-link active' href='/index.php'>Home</a></li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='activities.php'>Actividades</a></li>
+                        <a class='nav-link' href='/activities.php'>Actividades</a></li>
                     <li class='nav-item'>
-                        <a class='nav-link' href='contact.php'>Contacto</a></li>
+                        <a class='nav-link' href='/contact.php'>Contacto</a></li>
                 </ul>
             </div>";
         $html_login = "
             <div class='login'>
-                <a href='login.php'>Login</a>
-                <a href='register.php'>Resgistrarse</a>";
+                <a href='/login.php'>Login</a>
+                <a href='/register.php'>Resgistrarse</a>";
                 
         $html_final = "
             </div>
@@ -80,8 +80,8 @@ class View {
             $user = User::getLoggedUser(); //Que tipo de usuario es
             $nombreUser = User::getLoggedUser()['nombre'];
             $html_nombre = "<div class='login'>
-                <a href=''>$nombreUser</a>
-                <a href='logout.php'>Salir</a>";
+                <a href='/perfil.php'>$nombreUser</a>
+                <a href='/logout.php'>Salir</a>";
                 
             /*
             if($user["tipo"] == 2){ //Empresa
@@ -101,23 +101,7 @@ class View {
             echo $html . $html_login . $html_final;
         }
     }
-    
-    public static function footer() {
-        $html = 
-        "
-        <!-- Footer -->
-        <footer>
-            <div class='name'>GCActiva</div>
-            <div class='copyright'>@Copyright <b>Alexander Alvarez</b> - <b>Isidro Bermúdez</b> - <b>Fabián Beirutti</b></div>
-        </footer>
-        
-        </body>
-        </html>
-        ";
-        
-        echo $html;
-    }
-    
+
     public static function imgtobase64($img) {
         
         $b64 = base64_encode($img);
