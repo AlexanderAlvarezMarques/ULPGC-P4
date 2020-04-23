@@ -65,31 +65,41 @@ class View {
                     <li class='nav-item'>
                         <a class='nav-link' href='contact.php'>Contacto</a></li>
                 </ul>
-            </div>
+            </div>";
+        $html_login = "
             <div class='login'>
                 <a href='login.php'>Login</a>
-                <a href='register.php'>Resgistrarse</a>
+                <a href='register.php'>Resgistrarse</a>";
+                
+        $html_final = "
             </div>
         </header>
         ";
-
-        echo $html;
-    }
-
-    public static function footer() {
-        $html = 
-        "
-        <!-- Footer -->
-        <footer>
-            <div class='name'>GCActiva</div>
-            <div class='copyright'>@Copyright <b>Alexander Alvarez</b> - <b>Isidro Bermúdez</b> - <b>Fabián Beirutti</b></div>
-        </footer>
         
-        </body>
-        </html>
-        ";
-        
-        echo $html;
+        if (User::getLoggedUser() != false){ //Si está logueado
+            $user = User::getLoggedUser(); //Que tipo de usuario es
+            $nombreUser = User::getLoggedUser()['nombre'];
+            $html_nombre = "<div class='login'>
+                <a href=''>$nombreUser</a>
+                <a href='logout.php'>Salir</a>";
+                
+            /*
+            if($user["tipo"] == 2){ //Empresa
+                $nombreUser = User::getLoggedUser()['nombre'];
+                $html_2 = "<li class='nav-item'>
+                        <a class='nav-link' href=''>$nombreUser</a></li>";
+
+            }
+            if($user["tipo"] == 3){ //Cliente
+                $nombreUser = User::getLoggedUser()['nombre'];
+                $html_2 = "<li class='nav-item'>
+                        <a class='nav-link' href=''>$nombreUser</a></li>";
+
+            }*/
+            echo $html . $html_nombre . $html_final;
+        } else{
+            echo $html . $html_login . $html_final;
+        }
     }
 
     public static function imgtobase64($img) {
