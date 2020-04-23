@@ -1,9 +1,13 @@
 <?php
-	include_once 'business.class.php';
-    include_once 'data_access.class.php';
-    include_once 'presentation.class.php';
-	View::start();
-	View::header();
+
+include_once 'business.class.php';
+include_once 'data_access.class.php';
+include_once 'presentation.class.php';
+
+if (User::getLoggedUser() != null) header("Location:index.php");
+
+View::start();
+View::header();
 
 $login = true;
 
