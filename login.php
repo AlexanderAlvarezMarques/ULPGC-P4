@@ -29,7 +29,7 @@ if (isset($_POST["access"])){
 		<div class="container content">
 			<div class="margin">
 				<div class="form">
-				    <form class="formlogin" method="POST" action="index.php">
+				    <form class="formlogin" method="POST" action="login.php">
 				        <label class="labelogin" for="nombre">Usuario:</label><br>
 				        <input class="inputlogin" type="text" name="name"><br>
 				        <label class="labelogin" for="password">Contraseña:</label><br>
