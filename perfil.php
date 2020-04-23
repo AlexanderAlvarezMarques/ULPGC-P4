@@ -7,15 +7,15 @@ $user = User::getLoggedUser();
 if ($user != null) {
 	switch ($user['tipo']) {
 		case 1:
-			header("Location:partials/administrator.profile.php");
+			header("Locationadministrator.profile.php");
 			break;
 
 		case 2:
-			header("Location:partials/business.profile.php");
+			header("Location:/business.profile.php");
 			break;
 		
 		case 3:
-			header("Location:partials/user.profile.php");
+			header("Location:/user.profile.php");
 			break;
 
 		default:
