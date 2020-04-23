@@ -231,6 +231,16 @@
 		border-left: 2px solid white;
 	}
 
+/* Business profiles */
+	.business_profile {
+		width: 100%;
+		text-align: center;
+	}
+
+	.business_profile, .business_profile th, .business_profile td {
+		border: 1px #000 solid;
+	}
+
 /* Formulario */
 	.form{
 		width: 50%;
