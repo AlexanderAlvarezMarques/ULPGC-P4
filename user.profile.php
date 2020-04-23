@@ -39,7 +39,7 @@ foreach ($alltickets as $ticket) {
 	$actividad = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
     
     echo "<tr>";
-    echo "<td class='linktabla'><a href=activity.php?nombre='$idactividad'>$actividad</a></td>";
+    echo "<td class='linktabla'><a href='activity.php?id=$idactividad'>$actividad</a></td>";
     echo "<td class='linktabla'>$precio €</td>";
     echo "<td class='linktabla'>$unidades</td>";
     echo "</tr>";
