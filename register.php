@@ -1,8 +1,11 @@
 <?php
 
-	include ("presentation.class.php");
-	View::start();
-	View::header();
+include_once ("presentation.class.php");
+include_once ("business.class.php");
+
+View::start();
+
+View::header();
 
 $login = true;
 $ppass = true;
