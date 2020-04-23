@@ -241,6 +241,71 @@
 		border: 1px #000 solid;
 	}
 
+/* Información Actividad */
+	.title h1 {
+		text-align: center;
+		border-bottom: 2px #EEE dashed;
+	}
+
+	.tour .body {
+		display: grid;
+		grid-template-columns: 25% 50% 25%;
+	}
+
+	.tour .value {
+		float: right !important;
+	}
+
+	.tour .img img {
+		width: 100%;
+	}
+
+	.tour .desc {
+		text-align: justify;
+		padding: 0px 10px;
+		margin: 0px 10px;
+	}
+
+	.tour .info {
+		border: 3px #000 double;
+		padding: 0 10px;
+	}
+
+/* Empresa */
+	.title {
+		text-align: center !important;
+	}
+
+	.empresa {
+		display: grid;
+		grid-template-columns: 25% auto;
+		border-bottom: 3px #ACACAC dashed;
+	}
+
+	.empresa .img img {
+		width: 100%;
+	}
+
+	.empresa .info {
+		padding: 0 20px;
+	}
+
+	.tour_list table {
+		margin: 20px auto;
+	}
+
+	.tour_list table, .tour_list th, .tour_list td {
+		border: 1px #000 solid;
+	}
+
+	.tour_list table tr th {
+		padding: 10px;
+	}
+
+	.tour_list table tr td {
+		padding: 10px;
+	}
+
 /* Formulario */
 	.form{
 		width: 50%;
