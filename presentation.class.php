@@ -101,7 +101,23 @@ class View {
             echo $html . $html_login . $html_final;
         }
     }
-
+    
+    public static function footer() {
+        $html = 
+        "
+        <!-- Footer -->
+        <footer>
+            <div class='name'>GCActiva</div>
+            <div class='copyright'>@Copyright <b>Alexander Alvarez</b> - <b>Isidro Bermúdez</b> - <b>Fabián Beirutti</b></div>
+        </footer>
+        
+        </body>
+        </html>
+        ";
+        
+        echo $html;
+    }
+    
     public static function imgtobase64($img) {
         
         $b64 = base64_encode($img);
