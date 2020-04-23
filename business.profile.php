@@ -51,12 +51,18 @@ foreach ($activities as $activity) {
 	echo "<td>$precio</td>";
 	echo "<td><a href='activity.php?id=$id'>Ver</a></td>";
 	echo "<td>Editar</td>";
-	echo "<td>Eliminar</td>";
+	echo "<td><a href='remove_activity.php?id=$id'>Eliminar</a></td>";
 	echo "</tr>";
 
 }
 
 echo "</table>";
+<!-- Boton crear Actividad -->
+echo "<div class='form'>";
+echo "<form method='POST' action='add_activity.php'>";
+echo "<button class='button' type='submit'>Crear Actividad</button><br>";
+echo "</form>";
+echo "</div>";
 
 echo "</div>";
 echo "</div>";
