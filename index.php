@@ -1,8 +1,11 @@
-	<?php
+<?php
 
-	include ("presentation.class.php");
-	View::start();
-	View::header();
+include_once ("presentation.class.php");
+include_once ("data_access.class.php");
+
+View::start();
+
+View::header();
 
 	?>
 
@@ -107,5 +110,5 @@
 	</section>
 
 <?php
-	View::footer();
+View::footer();
 ?>

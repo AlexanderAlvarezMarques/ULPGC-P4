@@ -39,7 +39,7 @@ foreach ($activities as $activity) {
     $imagen = View::imgtobase64($activity['imagen']);
 
     echo "<tr>";
-    echo "<td class='linktabla'><a href='activity.php?nombre=$nombre'>$nombre</a></td>";
+    echo "<td class='linktabla'><a href='activity.php?nombre='$id'>$nombre</a></td>";
     echo "<td class='linktabla'>$precio €</td>";
     echo "<td class='linktabla'>$descripcion</td>";
     echo "</tr>";
