@@ -50,4 +50,8 @@
 		color: #FFF;
 		padding: 23.5px 5px;
 	}
+
+	header .d-md-none {
+		display: none !important;
+	}
 }

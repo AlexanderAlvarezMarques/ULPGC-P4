@@ -68,11 +68,11 @@ class View {
 
                     (
                         $user != false ? 
-                        '<li class="nav-item"><a class="nav-link" href="/perfil.php">' . $user['nombre'] . '</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/logout.php">Salir</a></li>' : 
+                        '<li class="nav-item d-md-none"><a class="nav-link" href="/perfil.php">' . $user['nombre'] . '</a></li>
+                        <li class="nav-item d-md-none"><a class="nav-link" href="/logout.php">Salir</a></li>' : 
                         
-                        '<li class="nav-item"><a class="nav-link" href="/login.php">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/register.php">Registrarse</a></li>'
+                        '<li class="nav-item d-md-none"><a class="nav-link" href="/login.php">Login</a></li>
+                        <li class="nav-item d-md-none"><a class="nav-link" href="/register.php">Registrarse</a></li>'
                     )
 
                     .
