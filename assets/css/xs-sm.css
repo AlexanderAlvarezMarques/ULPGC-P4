@@ -366,6 +366,16 @@
 		font-family: 'Roboto', sans-serif;
 	}
 
+/* Mofify user */
+	.modify_user {
+		width: 50%;
+		margin: 0 auto;
+	}
+
+	.modify_user * {
+		width: 100%;
+	}
+
 /* Footer */
 	footer {
 		position: absolute;

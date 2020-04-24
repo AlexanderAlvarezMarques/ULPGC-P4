@@ -12,6 +12,7 @@ $ppass = true;
 $completo = false;
 
 if (isset($_POST["access"])){
+
     $userName = $_POST["user"];
     $email = $_POST["email"];
     $name = $_POST["name"];
@@ -38,7 +39,12 @@ if (isset($_POST["access"])){
     }
     
     if($completo and $ppass){
-        if(User::registerUser($userName, md5($password1), $name, 3, $email, //3 es para hacerlo cliente
+
+        $tipo = 3;
+
+        if(isset($_POST['tipo'])) $tipo = $_post['tipo'];
+
+        if(User::registerUser($userName, md5($password1), $name, $tipo, $email, //3 es para hacerlo cliente
         					  $place, $dir, $tlfn)){
             header('Location:index.php');
         } else {
@@ -61,24 +67,48 @@ if (isset($_POST["access"])){
 			<div class="margin">
 				<div class="form">
 				    <form class="formlogin" method="POST" action="register.php">
-				        <input type="text" name="access" value="true" hidden><br><br>
-				        <label class="labelogin" for="user">Usuario:</label><br>
+				        
+                        <input type="text" name="access" value="true" hidden><br><br>
+				        
+                        <label class="labelogin" for="user">Usuario:</label><br>
 				        <input class="inputlogin" type="text" name="user"><br><br>
-				        <label class="labelogin" for="email">Email:</label><br>
+				        
+                        <label class="labelogin" for="email">Email:</label><br>
 				        <input class="inputlogin" type="text" name="email"><br><br>
-				        <label class="labelogin" for="name">Nombre:</label><br>
+				        
+                        <label class="labelogin" for="name">Nombre:</label><br>
 				        <input class="inputlogin" type="text" name="name"><br><br>
-				        <label class="labelogin" for="place">Poblacion:</label><br>
+
+                        <?php
+
+                        if(User::getLoggedUser()['tipo'] == 1) {
+
+                        ?>
+                        
+                        <label class="labelogin">Tipo:</label><br>
+                        <input type="number" name="tipo" min="1" max="3" value="3"><br><br>
+
+                        <?php
+                        }
+                        ?>
+				        
+                        <label class="labelogin" for="place">Poblacion:</label><br>
 				        <input class="inputlogin" type="text" name="place"><br><br>
-				        <label class="labelogin" for="dir">Direccion:</label><br>
+				        
+                        <label class="labelogin" for="dir">Direccion:</label><br>
 				        <input class="inputlogin" type="text" name="dir"><br><br>
-				        <label class="labelogin" for="tlfn">Telefono:</label><br>
+				        
+                        <label class="labelogin" for="tlfn">Telefono:</label><br>
 				        <input class="inputlogin" type="text" name="tlfn"><br><br>
-				        <label class="labelogin" for="password1">Contraseña:</label><br>
+				        
+                        <label class="labelogin" for="password1">Contraseña:</label><br>
 				        <input class="inputlogin" type="password" name="password1"><br><br>
-				        <label class="labelogin" for="password2">Confirmar Contraseña:</label><br>
+				        
+                        <label class="labelogin" for="password2">Confirmar Contraseña:</label><br>
 				        <input class="inputlogin" type="password" name="password2"><br><br>
-				        <button class="button" type="submit">Crear Cuenta</button><br>
+				        
+                        <button class="button" type="submit">Crear Cuenta</button><br>
+
 				    </form>
 				</div>
 				<?php
