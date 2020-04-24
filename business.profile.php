@@ -50,7 +50,7 @@ foreach ($activities as $activity) {
 	echo "<td>$aforo</td>";
 	echo "<td>$precio</td>";
 	echo "<td><a href='activity.php?id=$id'>Ver</a></td>";
-	echo "<td>Editar</td>";
+	echo "<td><a href='modify_activity.php?id=$id'>Editar</a></td>";
 	echo "<td><a href='remove_activity.php?id=$id'>Eliminar</a></td>";
 	echo "</tr>";
 
