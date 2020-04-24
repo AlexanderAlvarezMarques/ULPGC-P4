@@ -43,7 +43,7 @@ class Empresa{
     public static function crearActividad($idempresa,$nombreActividad,$tipoActividad,
                             $descripcionActividad,$precioActividad,$aforoActividad,
                             $inicioActividad,$duracionActividad){
-        $res=DB::execute_sql("INSERT INTO actividades (idempresa,nombre, tipo, descripcion,
+        return DB::execute_sql("INSERT INTO actividades (idempresa,nombre, tipo, descripcion,
                             precio, aforo, inicio, duracion) 
                             VALUES ('$idempresa','$nombreActividad','$tipoActividad',
                             '$descripcionActividad','$precioActividad','$aforoActividad',
@@ -51,7 +51,6 @@ class Empresa{
     }
     
     public static function eliminarActividad($id){
-        $res=DB::execute_sql('DELETE FROM actividades WHERE actividades.id = ?;',
-                            array($id));
+        DB::execute_sql('DELETE FROM actividades WHERE actividades.id = ?;', array($id));
     }
 }

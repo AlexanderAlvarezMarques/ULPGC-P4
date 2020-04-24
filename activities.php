@@ -16,8 +16,10 @@ echo "</div>";
 echo "<div class='background'>";
 echo "<div class='container content'>";
 echo "<div class='table_container'>";
+echo "<div class='searchInput'>";
 echo "<label>Buscar:</label>";
 echo "<input id='search' type='text' onkeyup='startTimer()' onkeydown='restartTimer()' placeholder='Opera'>";
+echo "</div>";
 echo "<table id='activities'>";
 echo "<tr>";
 echo "<th>Nombre</th>";
@@ -34,7 +36,7 @@ foreach ($activities as $activity) {
     $descripcion = $activity['descripcion'];
     $precio = $activity['precio'];
     $aforo = $activity['aforo'];
-    $inicio = date("dd-mm-yyyy", $activity['inicio']);
+    $inicio = date("d-m-y", $activity['inicio']);
     $duracion = $activity['duracion']/60;
     $imagen = View::imgtobase64($activity['imagen']);
 

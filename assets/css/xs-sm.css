@@ -177,6 +177,17 @@
 		padding-bottom: 40px;
 	}
 
+	.table_container .searchInput {
+		margin: 0 auto;
+		padding: 10px 0;
+		width: 90%;
+		box-sizing: border-box;
+	}
+
+	.table_container .searchInput input {
+		width: 97.5%;
+	}
+
 	.table_container tr td b {
 		font-size: 20px;
 	}
@@ -244,7 +255,6 @@
 /* Información Actividad */
 	.title h1 {
 		text-align: center;
-		border-bottom: 2px #EEE dashed;
 	}
 
 	.tour .body {
@@ -306,22 +316,22 @@
 		padding: 10px;
 	}
 
-/* Formulario */
-	.form{
+/* Add Activity Form */
+	.form {
 		width: 50%;
 		margin: 0 auto;
 	}
 
-	.formlogin{
+	.formlogin  {
 		width: 100%;
 	}
 
-	.labelogin{
+	.formlogin label {
 		font-family: 'Roboto', sans-serif;
 		margin-top: 5px;
 	}
 
-	.inputlogin{
+	.formlogin input, .formlogin textarea {
 		width: 100%;
 	}
 

@@ -122,7 +122,7 @@ class View {
         
         $b64 = base64_encode($img);
         $signature = substr($b64, 0, 3);
-        
+
         if ( $signature == '/9j') {
             $mime = 'data:image/jpeg;base64,';
         } else if ( $signature == 'iVB') {

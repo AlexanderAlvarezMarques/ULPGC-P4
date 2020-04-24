@@ -7,10 +7,11 @@ View::start();
 
 View::header();
 
-$create = true;
-$completo = false;
+$fail = false;
 
-if (isset($_POST["access"])){
+if (isset($_POST['add_activity'])){
+
+	$idempresa = User::getLoggedUser()['id'];
     $nombre = $_POST["nombre"];
     $tipo = $_POST["tipo"];
     $descripcion = $_POST["descripcion"];
@@ -19,27 +20,31 @@ if (isset($_POST["access"])){
     $inicio = $_POST["inicio"];
     $duracion = $_POST["duracion"];
     
-    if (empty($nombre) or empty($tipo) or empty($descripcion) or empty($precio) 
-                       or empty($aforo) or empty($inicio) or empty($duracion))
-                         {
-        $create = false;
-        $completo = false;
-    } else{
-        $completo = true;
-    }
+    //$imagen = addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
+
+    $inicio = new DateTime($inicio);
+	$inicio = $inicio->getTimeStamp();
     
-    if($completo){
-        $idempresa = User::getLoggedUser()['id'];
-        if(Empresa::crearActividad($idempresa,$nombre,$tipo,
-                            $descripcion,$precio,$aforo,
-                            $inicio,$duracion)){
-            header("Location:perfil.php");
-        } else {
-            $create = false;
-        }
-    }
+    $SQL = "INSERT INTO actividades(idempresa, nombre, tipo, descripcion, precio, aforo, inicio, duracion) VALUES ("
+    . "'$idempresa',"
+    . "'$nombre',"
+    . "'$tipo',"
+    . "'$descripcion',"
+    . "'$precio',"
+    . "'$aforo',"
+    . "'$inicio',"
+    . "'$duracion');"
+    //. "'$imagen');";
+
+    $fail = DB::execute_sql($SQL);
+
+    if (!$fail) $fail = true;
+    else header("Location:index.php");
+
+    $fail = true;
 }
 ?>
+
 <!-- Seccion central -->
 <section class="central">
 	<div class="container title">
@@ -49,32 +54,45 @@ if (isset($_POST["access"])){
 		<div class="container content">
 			<div class="margin">
 				<div class="form">
-				    <form class="formlogin" method="POST" action="add_activity.php">
-				        <input type="text" name="access" value="true" hidden><br><br>
+
+					<?php
+					if ($fail) echo "<p>Error al crear la actividad</p>";
+					?>
+
+					<form class="formlogin" method="POST" action="add_activity.php">
+				       
 				        <label class="labelogin" for="nombre">Nombre:</label><br>
-				        <input class="inputlogin" type="text" name="nombre"><br><br>
+				        <input class="inputlogin" type="text" name="nombre" required><br><br>
+				        
 				        <label class="labelogin" for="tipo">Tipo:</label><br>
-				        <input class="inputlogin" type="text" name="tipo"><br><br>
+				        <input class="inputlogin" type="text" name="tipo" required><br><br>
+				        
 				        <label class="labelogin" for="descripcion">Descripcion:</label><br>
-				        <input class="inputlogin" type="text" name="descripcion"><br><br>
+				        <textarea class="inputlogin" name="descripcion" required rows="5"></textarea><br><br>
+				        
 				        <label class="labelogin" for="precio">Precio:</label><br>
-				        <input class="inputlogin" type="text" name="precio"><br><br>
+				        <input class="inputlogin" type="number" name="precio" min="0" required><br><br>
+				        
 				        <label class="labelogin" for="aforo">Aforo:</label><br>
-				        <input class="inputlogin" type="text" name="aforo"><br><br>
+				        <input class="inputlogin" type="number" name="aforo" min="1" required><br><br>
+				        
 				        <label class="labelogin" for="inicio">Inicio:</label><br>
-				        <input class="inputlogin" type="text" name="inicio"><br><br>
-				        <label class="labelogin" for="duracion">Duracion:</label><br>
-				        <input class="inputlogin" type="text" name="duracion"><br><br>
-				        <button class="button" type="submit">Crear Actividad</button><br>
+				        <input class="date" type="date" name="inicio" required><br><br>
+				        
+				        <label class="labelogin" for="duracion">Duracion: (min)</label><br>
+				        <input class="inputlogin" type="number" name="duracion" min="1" required><br><br>
+				        <!--
+						<label class="labelogin">Imagen:</label><br>
+						<input type="file" name="imagen" onchange="preview_image(event)"><br>
+
+						<img id="output_image" />
+						-->
+				        <input type="text" name="add_activity" value="true" hidden><br>
+				        <input type="submit" value="Crear Actividad">
+
 				    </form>
+
 				</div>
-				<?php
-                    if (!$create) {
-                        if(!$completo){
-                            echo "<p><b>Rellene todos los campos</b></p>";
-                        }
-                    }
-                ?>
 			</div>
 		</div>
 		</div>
@@ -82,4 +100,5 @@ if (isset($_POST["access"])){
 </section>
 
 <?php
-	View::footer();
+
+View::footer();

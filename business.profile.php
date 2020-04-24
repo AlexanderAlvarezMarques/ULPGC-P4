@@ -57,7 +57,7 @@ foreach ($activities as $activity) {
 }
 
 echo "</table>";
-<!-- Boton crear Actividad -->
+echo "<!-- Boton crear Actividad -->";
 echo "<div class='form'>";
 echo "<form method='POST' action='add_activity.php'>";
 echo "<button class='button' type='submit'>Crear Actividad</button><br>";
