@@ -38,7 +38,6 @@ foreach ($activities as $activity) {
     $aforo = $activity['aforo'];
     $inicio = date("d-m-y", $activity['inicio']);
     $duracion = $activity['duracion']/60;
-    $imagen = View::imgtobase64($activity['imagen']);
 
     echo "<tr>";
     echo "<td class='linktabla'><a href='activity.php?id=$id'>$nombre</a></td>";
