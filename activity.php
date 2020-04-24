@@ -42,12 +42,18 @@ $SQL = "select nombre from empresas where idempresa='$idempresa';";
 $empresa = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
 
 $SQL = "SELECT unidades FROM tickets WHERE idactividad='$id';";
-$result = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED);
-$contador = 0;
-foreach($result as $valor){
-    $contador += intval($valor)['unidades'];
+$tickets = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED);
+
+print_r($tickets);
+
+$cont = 0;
+
+foreach ($tickets as $ticket) {
+    $cont = $cont + intval($ticket['unidades']);
 }
-echo $contador;
+
+echo $cont;
+
 ?>
 <section class='central'>
     <div class='container title'>
@@ -67,7 +73,7 @@ echo $contador;
                                 $imagen = "No hay Imagen Todavia";
                             }else{
                                 $imagen = View::imgtobase64($activity['imagen']);
-                                echo "<img src='$imagen' alt='$descripcion'";
+                                echo "<img src='$imagen' alt='$descripcion'>";
                             }
                             ?>
                 		</div>
