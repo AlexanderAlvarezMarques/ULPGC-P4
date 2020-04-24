@@ -75,7 +75,7 @@ View::header();
 								    <img src='$imagen' alt='Imagen de $nombre' title='$nombre'>
 								    <div class='hover-galery'>
 									    <img src='imagenes/icon.png'>
-									    <p>'$nombre'</p>
+									    <p><a href='activity.php?id=$id'>$nombre</a></p>
 								    </div>
 							    </div>
 						        ";
