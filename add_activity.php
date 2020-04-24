@@ -33,7 +33,7 @@ if (isset($_POST['add_activity'])){
     . "'$precio',"
     . "'$aforo',"
     . "'$inicio',"
-    . "'$duracion');"
+    . "'$duracion');";
     //. "'$imagen');";
 
     $fail = DB::execute_sql($SQL);
