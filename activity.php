@@ -40,6 +40,14 @@ $idempresa = $activity['idempresa'];
 
 $SQL = "select nombre from empresas where idempresa='$idempresa';";
 $empresa = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
+
+$SQL = "SELECT unidades FROM tickets WHERE idactividad='$id';";
+$result = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED);
+$contador = 0;
+foreach($result as $valor){
+    $contador += intval($valor)['unidades'];
+}
+echo $contador;
 ?>
 <section class='central'>
     <div class='container title'>
@@ -59,7 +67,7 @@ $empresa = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
                                 $imagen = "No hay Imagen Todavia";
                             }else{
                                 $imagen = View::imgtobase64($activity['imagen']);
-                                echo "<img src='$imagen' alt='$descripcion'>";
+                                echo "<img src='$imagen' alt='$descripcion'";
                             }
                             ?>
                 		</div>
@@ -80,7 +88,7 @@ $empresa = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
                 			    $html = "
                 			        <form action='activity.php?id=<?php echo $id ?>' method='POST'>
                                         <label>Cantidad:</label><br>
-                                        <input type='number' name='cantidad' value='1' min='1'>
+                                        <input type='number' name='cantidad' value='1' min='1' max='$maxtickets'>
                                         <input type='text' name='id' value='$id' hidden>
                                         <input type='text' name='precio' value='$precio' hidden>
                                         <input type='text' name='command' value='comprar' hidden>
