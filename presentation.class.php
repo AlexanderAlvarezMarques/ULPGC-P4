@@ -46,6 +46,8 @@ class View {
 
     public static function header() {
 
+        $user = User::getLoggedUser();
+
         $html = 
         "
         <!-- header -->
@@ -58,14 +60,26 @@ class View {
                     <i class='fas fa-bars' onclick='burguer_navbar_sup()'></i>
                 </div>
                 <ul class='navbar' id='navbar_sup'>
-                    <li class='nav-item nav-item-1'>
-                        <a class='nav-link active' href='/index.php'>Home</a></li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='/activities.php'>Actividades</a></li>
-                    <li class='nav-item'>
-                        <a class='nav-link' href='/contact.php'>Contacto</a></li>
-                </ul>
+                    <li class='nav-item nav-item-1'><a class='nav-link active' href='/index.php'>Home</a></li>
+                    <li class='nav-item'><a class='nav-link' href='/activities.php'>Actividades</a></li>
+                    <li class='nav-item'><a class='nav-link' href='/contact.php'>Contacto</a></li>"
+
+                    .
+
+                    (
+                        $user != false ? 
+                        '<li class="nav-item"><a class="nav-link" href="/perfil.php">' . $user['nombre'] . '</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout.php">Salir</a></li>' : 
+                        
+                        '<li class="nav-item"><a class="nav-link" href="/login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/register.php">Registrarse</a></li>'
+                    )
+
+                    .
+
+                "</ul>
             </div>";
+        
         $html_login = "
             <div class='login'>
                 <a href='/login.php'>Login</a>
@@ -76,33 +90,19 @@ class View {
         </header>
         ";
         
-        if (User::getLoggedUser() != false){ //Si está logueado
-            $user = User::getLoggedUser(); //Que tipo de usuario es
-            $nombreUser = User::getLoggedUser()['nombre'];
+        if ($user != false){ //Si está logueado
+            $nombreUser = $user['nombre'];
             $html_nombre = "<div class='login'>
                 <a href='/perfil.php'>$nombreUser</a>
                 <a href='/logout.php'>Salir</a>";
-                
-            /*
-            if($user["tipo"] == 2){ //Empresa
-                $nombreUser = User::getLoggedUser()['nombre'];
-                $html_2 = "<li class='nav-item'>
-                        <a class='nav-link' href=''>$nombreUser</a></li>";
 
-            }
-            if($user["tipo"] == 3){ //Cliente
-                $nombreUser = User::getLoggedUser()['nombre'];
-                $html_2 = "<li class='nav-item'>
-                        <a class='nav-link' href=''>$nombreUser</a></li>";
-
-            }*/
             echo $html . $html_nombre . $html_final;
         } else{
             echo $html . $html_login . $html_final;
         }
     }
     
-        public static function footer() {
+    public static function footer() {
         $html = 
         "
         <!-- Footer -->
