@@ -7,12 +7,14 @@ View::start();
 
 View::header();
 
+$id = $_GET['id'];
+
 if(isset($_POST['command'])) {
 	if ($_POST['command'] == "update") {
 
 		$idempresa = User::getLoggedUser()['id'];
         $nombre = $_POST["nombre"];
-        //$tipo = $_POST["tipo"];
+        $tipo = $_POST["tipo"];
         $descripcion = $_POST["descripcion"];
         $precio = $_POST["precio"];
         $aforo = $_POST["aforo"];
@@ -25,21 +27,23 @@ if(isset($_POST['command'])) {
 
 		$SQL = "UPDATE actividades SET "
 			. "nombre='$nombre',"
+			. "tipo='$tipo',"
 			. "descripcion='$descripcion',"
 			. "precio='$precio',"
 			. "aforo='$aforo',"
 			. "inicio='$inicio',"
 			. "duracion='$duracion'"
-			. "where id='$idempresa';";
+			. "where id='$id';";
 
 		DB::execute_sql($SQL);
 	}
 }
 
-$id = $_GET['id'];
+
 $actividad = DB::execute_sql("SELECT * FROM actividades WHERE id='$id';")->fetchAll(PDO::FETCH_NAMED);
 
 $nombre = $actividad[0]['nombre'];
+$tipo = $actividad[0]['tipo'];
 $descripcion = $actividad[0]['descripcion'];
 $empr = DB::execute_sql("SELECT nombre FROM empresas WHERE idempresa='" . $actividad[0]['idempresa'] . "';")->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
 $precio = round($actividad[0]['precio'], 1);
@@ -64,7 +68,9 @@ $duracion = round($actividad[0]['duracion'] / 60);
                     	<!-- <img src="<?php echo $img ?>" alt="<?php echo $name ?>"> -->
                     		<label class="labelogin" for="nombre">Nombre:</label><br>
                     		<input class="inputlogin" type="text" name="nombre" value="<?php echo $nombre ?>"><br>
-                    		<label class="labelogin" for="descripcion">>Desripción:</label><br>
+                    		<label class="labelogin" for="tipo">Tipo:</label><br>
+                    		<input class="inputlogin" type="text" name="tipo" value="<?php echo $tipo ?>"><br>
+                    		<label class="labelogin" for="descripcion">Desripción:</label><br>
                     		<textarea class="inputlogin" name="descripcion" cols="50"><?php echo $descripcion ?></textarea><br>
                     		<label class="labelogin" for="precio">Precio:</label><br>
                     		<input class="inputlogin" type="number" name="precio" value="<?php echo $precio ?>" min="0" step="any"><br>
