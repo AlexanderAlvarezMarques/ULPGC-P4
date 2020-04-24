@@ -44,15 +44,13 @@ $empresa = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
 $SQL = "SELECT unidades FROM tickets WHERE idactividad='$id';";
 $tickets = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED);
 
-print_r($tickets);
-
 $cont = 0;
 
 foreach ($tickets as $ticket) {
     $cont = $cont + intval($ticket['unidades']);
 }
 
-echo $cont;
+$maxtickets = $aforo - $cont;
 
 ?>
 <section class='central'>
@@ -91,7 +89,8 @@ echo $cont;
                 			<div><b>Empresa:</b><br><a href="empresa.php?name=<?php echo $empresa ?>"><?php echo $empresa ?></a></div>
                 			<?php 
                 			if(User::getLoggedUser()['tipo'] == 3){
-                			    $html = "
+                			    if($maxtickets != 0){
+                			        $html = "
                 			        <form action='activity.php?id=<?php echo $id ?>' method='POST'>
                                         <label>Cantidad:</label><br>
                                         <input type='number' name='cantidad' value='1' min='1' max='$maxtickets'>
@@ -100,8 +99,9 @@ echo $cont;
                                         <input type='text' name='command' value='comprar' hidden>
                                         <input type='submit' value='Comprar'>
                                     </form>
-                			    ";
-                			    echo $html;
+                    			    ";
+                    			    echo $html;
+                			    }
                 			}
                 			?>
                 		</div>
