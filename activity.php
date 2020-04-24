@@ -37,7 +37,6 @@ $duracion = round($activity['duracion']/60);
 $inicio = date("d-m-Y", $activity['inicio']);
 $descripcion = $activity['descripcion'];
 $idempresa = $activity['idempresa'];
-$imagen = View::imgtobase64($activity['imagen']);
 
 $SQL = "select nombre from empresas where idempresa='$idempresa';";
 $empresa = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
@@ -52,9 +51,17 @@ $empresa = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
                 <div class="tour">
                 	<!-- Cuerpo -->
                 	<div class="body">
+                	    
                 		<!-- Imagen -->
                 		<div class="img">
-                			<img src="<?php echo $imagen ?>">
+                		    <?php
+                		    if(empty($activity['imagen'])){
+                                $imagen = "No hay Imagen Todavia";
+                            }else{
+                                $imagen = View::imgtobase64($activity['imagen']);
+                                echo "<img src='$imagen' alt='$descripcion'";
+                            }
+                            ?>
                 		</div>
                 		
                 		<!-- Descripcion -->
