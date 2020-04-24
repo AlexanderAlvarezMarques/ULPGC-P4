@@ -25,10 +25,10 @@ echo "<div class='background'>";
 echo "<div class='container content'>";
 echo "<div class='margin'>";
 
-echo "<table class='business_profile'>";
+echo "<table id='activities'>";
 echo "<tr>";
 echo "<th>Nombre</th>";
-echo "<th>día</th>";
+echo "<th>Día</th>";
 echo "<th>Aforo</th>";
 echo "<th>Precio</th>";
 echo "<th>Tickets</th>";
@@ -57,7 +57,8 @@ foreach ($activities as $activity) {
 }
 
 echo "</table>";
-echo "<!-- Boton crear Actividad -->";
+
+echo "<br><br>";
 echo "<div class='form'>";
 echo "<form method='POST' action='add_activity.php'>";
 echo "<button class='button' type='submit'>Crear Actividad</button><br>";
