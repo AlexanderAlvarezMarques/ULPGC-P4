@@ -15,7 +15,7 @@ $alltickets = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED);
 echo "<!-- Seccion central -->";
 echo "<section class='central'>";
 echo "<div class='container title'>";
-echo "<h1>Actividades populares en GCActiva</h1>";
+echo "<h1>Mis Actividades</h1>";
 echo "</div>";
 echo "<div class='background'>";
 echo "<div class='container content'>";

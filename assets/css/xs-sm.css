@@ -251,19 +251,24 @@
 	.business_profile, .business_profile th, .business_profile td {
 		border: 1px #000 solid;
 	}
+	
+	.separa {
+	    padding-bottom: 10px;
+	    border-bottom: 3px #ACACAC dashed;
+	}
 
 /* Información Actividad */
 	.title h1 {
 		text-align: center;
 	}
+	
+	.tour .value {
+		float: right !important;
+	}
 
 	.tour .body {
 		display: grid;
 		grid-template-columns: 25% 50% 25%;
-	}
-
-	.tour .value {
-		float: right !important;
 	}
 
 	.tour .img img {

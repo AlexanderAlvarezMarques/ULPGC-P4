@@ -25,6 +25,7 @@ echo "<div class='background'>";
 echo "<div class='container content'>";
 echo "<div class='margin'>";
 
+echo "<div class='separa'>";
 echo "<table id='activities'>";
 echo "<tr>";
 echo "<th>Nombre</th>";
@@ -64,7 +65,54 @@ echo "<form method='POST' action='add_activity.php'>";
 echo "<button class='button' type='submit'>Crear Actividad</button><br>";
 echo "</form>";
 echo "</div>";
+echo "</div>";
+?>
 
+<div class="tour_list">
+
+<?php
+
+$SQL = "SELECT * FROM tickets WHERE idactividad IN (SELECT id from actividades WHERE idempresa='${user['id']}');";
+
+$ticketList = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED);
+
+echo "<table>";
+echo "<tr>";
+echo "<th>Cliente</th>";
+echo "<th>Actividad</th>";
+echo "<th>Precio</th>";
+echo "<th>Unidades</th>";
+echo "<th>Total</th>";
+echo "</tr>";
+
+foreach ($ticketList as $ticket) {
+	
+	$SQL = "SELECT nombre FROM usuarios WHERE id='${ticket['idcliente']}';";
+	$cliente = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
+
+	$SQL = "SELECT nombre FROM actividades WHERE id='${ticket['idactividad']}';";
+	$actividad = DB::execute_sql($SQL)->fetchAll(PDO::FETCH_NAMED)[0]['nombre'];
+	
+	$precio = round($ticket['precio'], 1);
+	$unidades = $ticket['unidades'];
+	$total = $unidades * $precio;
+	
+	echo "<tr>";
+	echo "<td>$cliente</td>";
+	echo "<td>$actividad</td>";
+	echo "<td>$precio</td>";
+	echo "<td>$unidades</td>";
+	echo "<td>$total</td>";
+	echo "</tr>";
+	
+}
+
+echo "</table>";
+?>
+
+</div>
+
+<?php
 echo "</div>";
 echo "</div>";
 echo "</div>";

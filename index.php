@@ -7,7 +7,7 @@ View::start();
 
 View::header();
 
-	?>
+?>
 
 	<!-- Seccion central -->
 	<section class="central">
